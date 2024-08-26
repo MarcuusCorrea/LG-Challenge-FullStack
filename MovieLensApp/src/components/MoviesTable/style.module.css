@@ -1,0 +1,39 @@
+
+.container {
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+}
+
+.movieTableContainer {
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* gap: 5vw; */
+    /* width: 40%; */
+}
+
+.movieTableContainer td{
+    width: 100%;
+
+    p {
+        text-wrap: nowrap;
+    }
+}
+.movieTableContainer td p{
+    text-wrap: nowrap;
+}
+
+.movieTableContainer th p {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    cursor: pointer;
+    
+}
+
+.movieTableContainer tr {
+    width: 100%;
+}           
