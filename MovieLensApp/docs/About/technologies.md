@@ -2,33 +2,30 @@
 sidebar_position: 2
 ---
 
-# Technologies used 
+# Tecnologias utilizadas
 
-This section will show you the technologies used to create MovieLensApp.
-
+Esta seção mostrará as tecnologias usadas para criar o MovieLensApp.
 
 ## NestJS
 
-[Nest](https://nestjs.com/) is a powerful and robust NodeJS framework. It allows highly reliable and scalable applications.
-I chose Nest due to its high usage and its power, allowing a quick scalability and expansion on applications.
-For this application, as it is quite simple, just one module was needed, as there is just one table on Database.
+[Nest](https://nestjs.com/) é um framework poderoso e robusto para NodeJS. Ele permite o desenvolvimento de aplicações altamente confiáveis e escaláveis.
+Escolhi o Nest devido ao seu alto uso e poder, permitindo uma escalabilidade rápida e expansão das aplicações.
+Para esta aplicação, como é bastante simples, apenas um módulo foi necessário, já que há apenas uma tabela no banco de dados.
 
-Alongside with NestJS, were used:
-- [PrismaORM](https://www.prisma.io/docs) - Used to access and manage Database
-- [SQLite](https://www.sqlite.org/index.html) - Used as Database
-- [Jest](https://jestjs.io/pt-BR/) - Used to unit tests
+Junto com o NestJS, foram usados:
+- [PrismaORM](https://www.prisma.io/docs) - Usado para acessar e gerenciar o banco de dados
+- [SQLite](https://www.sqlite.org/index.html) - Usado como banco de dados
+- [Jest](https://jestjs.io/pt-BR/) - Usado para testes unitários
 
 ## Docusaurus
 
-[Docusaurus](https://docusaurus.io/) is a [React](https://react.dev/) framework focused in documenting applications, 
-it allows the use of Markdown
-files on React and allows customization and new pages to be created on it. I chose docusaurus because i wanted to use Markdown files
-as this app documentation, and because it runs react, i could cutomize and create my own pages.
+[Docusaurus](https://docusaurus.io/) é um framework [React](https://react.dev/) focado na documentação de aplicações,
+ele permite o uso de arquivos Markdown no React e possibilita a personalização e criação de novas páginas. Escolhi o Docusaurus porque queria usar arquivos Markdown para a documentação deste app, e como ele roda React, pude personalizar e criar minhas próprias páginas.
 
 ## Docker
 
-[Docker](https://www.docker.com/) is an open-source platform designed to automate application deployment and manage containerized applications. At its core, Docker uses containers to encapsulate applications and their dependencies, ensuring they run consistently across different environments, from a developer's laptop to a production server. It allows scalability, portability, resource efficiency and is an essential part of DevOps.
+[Docker](https://www.docker.com/) é uma plataforma open-source projetada para automatizar a implantação de aplicações e gerenciar aplicações em contêineres. No seu núcleo, o Docker usa contêineres para encapsular aplicações e suas dependências, garantindo que elas funcionem de forma consistente em diferentes ambientes, desde o laptop de um desenvolvedor até um servidor de produção. Ele permite escalabilidade, portabilidade, eficiência de recursos e é uma parte essencial do DevOps.
 
-In this application, there are two systems working: ```MovieLens API``` and ```MovieLens Client```, each one has its own Dockerfile, configuring enviroment, image and testing(the API). And for a quick build and execution, a ```docker-compose.yml``` file was used to build and run API and Client images.
+Nesta aplicação, há dois sistemas funcionando: ```MovieLens API``` e ```MovieLens Client```, cada um com seu próprio Dockerfile, configurando o ambiente, a imagem e testando (no caso da API). Para uma construção e execução rápidas, foi utilizado um arquivo ```docker-compose.yml``` para construir e executar as imagens da API e do Cliente.
 
-MovieLens API has a test stage where it runs the test suites and only build the application if it's all passed.
+O MovieLens API tem uma etapa de testes onde ele executa as suítes de teste e só constrói a aplicação se todos os testes passarem.

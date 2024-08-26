@@ -2,43 +2,42 @@
 sidebar_position: 3
 ---
 
-# Architecture
+# Arquitetura
 
-Detailed description of the architecture of the application using the C4 model.
+Descrição detalhada da arquitetura da aplicação utilizando o modelo C4.
 
-## C4 Model
+## Modelo C4
 
-The C4 Model, comprising Context, Containers, Components, and Code diagrams, offers a structured approach for designing and communicating software architecture. At its core, it provides a hierarchical view of a system's architecture, starting from the high-level context and gradually drilling down to the code level.
+O Modelo C4, composto por diagramas de Contexto, Contêineres, Componentes e Código, oferece uma abordagem estruturada para o design e comunicação da arquitetura de software. No seu núcleo, ele fornece uma visão hierárquica da arquitetura de um sistema, começando pelo contexto de alto nível e gradualmente se aprofundando até o nível do código.
 
-### Context Diagram
+### Diagrama de Contexto
 
-On the context diagram, we can see external software systems used by this app, as its shown, there is no external software.
+No diagrama de contexto, podemos ver sistemas de software externos usados por este aplicativo. Como mostrado, não há sistemas de software externos.
 
 ![image](https://i.imgur.com/8NpiO1f.png)
 
+### Diagrama de Contêiner
 
-### Container Diagram
-
-On the container diagram, we can see the modules of our systems, parts of system that can run independently.
+No diagrama de contêiner, podemos ver os módulos de nossos sistemas, as partes do sistema que podem funcionar de forma independente.
 
 ![image](https://i.imgur.com/gG4YwBa.png)
 
-### Component Diagram - API
+### Diagrama de Componentes - API
 
-On this component diagram we can see parts of API module and how they interact with each other. NestJS uses a pattern with Module, Controller and Service.
-Modules manages controllers and providers, Controllers manages requests logic and Services are responsible for the business rules and the logic of the system.
-As there is just one table, just one module, controller and service were needed.
+Neste diagrama de componentes, podemos ver as partes do módulo da API e como elas interagem entre si. O NestJS utiliza um padrão com Módulo, Controlador e Serviço. 
+Os Módulos gerenciam controladores e provedores, os Controladores gerenciam a lógica de requisições, e os Serviços são responsáveis pelas regras de negócios e pela lógica do sistema. 
+Como há apenas uma tabela, foi necessário apenas um módulo, controlador e serviço.
 
 ![image](https://i.imgur.com/p7JKoDG.png)
 
-### Component Diagram - Client
+### Diagrama de Componentes - Cliente
 
-On this component diagram we see the components of Client module, and how they interact.
+Neste diagrama de componentes, vemos os componentes do módulo Cliente e como eles interagem.
 
 ![image](https://i.imgur.com/SQWWOir.png)
 
-### Database Schema
+### Esquema do Banco de Dados
 
-Just one table was needed, FilmeRating, containing movieID, year, genres, rating and quantity of ratings. SQLite were used as Database.
+Foi necessária apenas uma tabela, `FilmeRating`, contendo movieID, ano, gêneros, classificação e quantidade de classificações. O SQLite foi utilizado como banco de dados.
 
 ![image](https://i.imgur.com/CQDO3eA.png)

@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# About
+# Sobre
 
-MovieLens App is a web application that uses the MovieLens dataset to list and recommend movies and display their ratings.
+MovieLens App é uma aplicação web que utiliza o conjunto de dados MovieLens para listar e recomendar filmes, além de exibir suas classificações.
 
-### Technologies
+### Tecnologias
 - NestJS
 - PrismaORM
 - SQLite
@@ -14,36 +14,32 @@ MovieLens App is a web application that uses the MovieLens dataset to list and r
 - Docusaurus
 - Docker
 
-NestJS and PrismaORM were used to implement the API that provides data to the client. NestJS is a robust framework for NodeJS, with many implementations and tools available for API development. 
-PrismaORM is a library for object-relational mapping (ORM), using the SQLite database.
+NestJS e PrismaORM foram utilizados para implementar a API que fornece dados para o cliente. NestJS é um framework robusto para NodeJS, com diversas implementações e ferramentas disponíveis para o desenvolvimento de APIs. 
+PrismaORM é uma biblioteca de mapeamento objeto-relacional (ORM), utilizando o banco de dados SQLite.
 
-For the client, the Docusaurus framework was used, created by Facebook, which allows the creation of web pages and the use of Markdown files, perfect for implementing project documentation. 
-Under the hood, Docusaurus runs React, allowing customization of pages and utilizing all the power that React offers.
+Para o cliente, foi utilizado o framework Docusaurus, criado pelo Facebook, que permite a criação de páginas web e o uso de arquivos Markdown, perfeito para a documentação do projeto. 
+Por trás das cenas, o Docusaurus roda com React, permitindo a personalização das páginas e aproveitando todo o poder que o React oferece.
 
-To run the systems in the environment, Docker was used. Dockerfiles were created for the API and the Client, and both are executed through docker-compose, which has a configuration file `.yml`.
+Para rodar os sistemas no ambiente, foi utilizado Docker. Foram criados Dockerfiles para a API e para o Cliente, e ambos são executados através do docker-compose, que possui um arquivo de configuração `.yml`.
 
-## Running the Application
+## Executando a Aplicação
 
-To run the application, you need to have Docker installed on your machine.
-- [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/)
+Para rodar a aplicação, você precisa ter o Docker instalado em sua máquina.
+- [Instalar Docker Desktop no Windows](https://docs.docker.com/desktop/install/windows-install/)
 
-With Docker installed, run the following in your terminal:
-
-
+Com o Docker instalado, execute o seguinte no terminal:
 
 ```console
 user@desktop:$ git clone https://github.com/devRaelBraga/LG-Challenge-FullStack.git
 user@desktop:$ cd MovieLensApp/ 
 user@desktop:MovieLensApp$ docker-compose up -d --build
 ```
-After that, the application will be available at [http://localhost:3000](http://localhost:3000)
+Após isso, a aplicação estará disponível em http://localhost:3000.
 
-### Data Processing
+### Processamento de Dados
+Utilizando o conjunto de dados do MovieLens, o script movie-lens-api/src/migrator.js foi usado para ler o dataset em formato CSV, e com a biblioteca csv-parser, os dados foram transformados em objetos JavaScript. Com isso, eles são inseridos no banco de dados usando o Prisma.
 
-Using the dataset from [MovieLens](http://files.grouplens.org/datasets/movielens/ml-25m.zip),
-the script `movie-lens-api/src/migrator.js` was used to read the dataset in CSV format, and with the `csv-parser` library, the data was transformed into JavaScript objects. With this, they are inserted into the database using Prisma.
-
-Thus, at the end of the execution, we have a database with a table `FilmeRating` that has the parameters:
+Assim, ao final da execução, temos um banco de dados com uma tabela FilmeRating, que possui os seguintes parâmetros:
 - title
 - year
 - genres
@@ -51,16 +47,15 @@ Thus, at the end of the execution, we have a database with a table `FilmeRating`
 - quantity (quantity of user ratings)
 
 
-### Making Data Available
+### Disponibilizando Dados
+A API MovieLens disponibiliza dados nas seguintes rotas:
 
-MovieLens API makes data available at routes:
-- get all movies: GET /
-- search movies: GET /search?title=&year=&genre=&top=
-- get recommended movies: GET /recomendation
+- obter todos os filmes: GET /
+- buscar filmes: GET /search?title=&year=&genre=&top=
+- obter filmes recomendados: GET /recomendation
 
-### Consuming Data
+### Consumindo Dados
 
-Client consumes data on ```localhost:3003``` via fetch shows it to the user on a table.
-It's also possible to sort movies by year or by rating, just clicking on Year or Rating table header.
+O cliente consome os dados em localhost:3003 via fetch e os exibe para o usuário em uma tabela. Também é possível ordenar os filmes por ano ou por classificação, clicando no cabeçalho da tabela "Ano" ou "Classificação".
 
 ![image](https://i.imgur.com/mZEqZha.png)
